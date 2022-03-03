@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
     tableName = "product_table",
     foreignKeys = [
         ForeignKey(entity = ProductUnitEntity::class,parentColumns = ["id"],childColumns = ["unit_id"]),
-
+        ForeignKey(entity = UserEntity::class,parentColumns = ["id"],childColumns = ["user_id"])
     ]
 )
 data class ProductEntity(
@@ -20,5 +20,7 @@ data class ProductEntity(
     val category_id:Int,
     val unit_in_stock:Float,
     val unit_price:Int,
-    val user_id:Int
+    val user_id:Int,
+    val bar_code:Int,
+    val is_deleted:Boolean
 )

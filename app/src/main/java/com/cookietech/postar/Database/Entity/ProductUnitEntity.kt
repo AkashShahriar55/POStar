@@ -8,13 +8,16 @@ import com.cookietech.postar.Model.ProductUnit
 data class ProductUnitEntity(
         @PrimaryKey(autoGenerate = true)val id:Int,
         val unit_name:String
-    ):ProductUnit{
-    override fun getUnitId(): Int {
-        return id
-    }
+    ){
+//    override fun getUnitId(): Int {
+//        return id
+//    }
+//
+//    override fun getUnitName(): String {
+//        return unit_name
+//    }
 
-    override fun getUnitName(): String {
-        return unit_name
-    }
+
+    constructor():this(0,""){}
 
 }
