@@ -6,11 +6,11 @@ import com.cookietech.postar.Model.ProductUnit
 
 @Entity(tableName = "product_unit_table")
 data class ProductUnitEntity(
-        @PrimaryKey(autoGenerate = true)var unit_id:Int,
-        var unit_name:String
+        @PrimaryKey(autoGenerate = true)val id:Int,
+        val unit_name:String
     ):ProductUnit{
     override fun getUnitId(): Int {
-        return unit_id
+        return id
     }
 
     override fun getUnitName(): String {

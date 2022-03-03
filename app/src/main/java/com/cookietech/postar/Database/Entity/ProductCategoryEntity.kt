@@ -6,11 +6,11 @@ import com.cookietech.postar.Model.ProductCategory
 
 @Entity(tableName = "product_category_table")
 data class ProductCategoryEntity(
-    @PrimaryKey(autoGenerate = true) var category_id:Int,
-    var category_name:String
+    @PrimaryKey(autoGenerate = true) val id:Int,
+    val category_name:String
 ):ProductCategory {
     override fun getCategoryId(): Int {
-        return category_id
+        return id
     }
 
     override fun getCategoryName(): String {

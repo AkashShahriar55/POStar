@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "supplier_table")
 data class SupplierEntity(
-    @PrimaryKey(autoGenerate = true) var supplier_id:Int,
-    var supplier_code:String,
-    var supplier_name:String,
-    var supplier_contact:String,
-    var supplier_address:String,
-    var supplier_email:String
+    @PrimaryKey(autoGenerate = true) val id:Int,
+    val supplier_code:String,
+    val supplier_name:String,
+    val supplier_contact:String,
+    val supplier_address:String,
+    val supplier_email:String
 )
