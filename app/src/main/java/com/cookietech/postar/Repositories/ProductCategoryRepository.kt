@@ -1,8 +1,8 @@
 package com.cookietech.postar.Repositories
 
 import androidx.annotation.WorkerThread
-import com.cookietech.postar.Database.Dao.ProductCategoryDao
-import com.cookietech.postar.Database.Entity.ProductCategoryEntity
+import com.cookietech.postar.Data.Database.Dao.ProductCategoryDao
+import com.cookietech.postar.Data.Database.Entity.ProductCategoryEntity
 import kotlinx.coroutines.flow.Flow
 
 class ProductCategoryRepository(private val productCategoryDao: ProductCategoryDao) {
