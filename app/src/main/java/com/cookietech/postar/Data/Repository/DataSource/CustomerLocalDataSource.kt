@@ -10,5 +10,6 @@ interface CustomerLocalDataSource {
     fun getAllCustomers():Flow<List<CustomerEntity>>
     fun getCustomerById(id:String):Flow<CustomerEntity>
     fun searchCustomer(query:String):Flow<List<CustomerEntity>>
-    fun updateCustomer(customer: CustomerEntity):Flow<Status>
+    fun updateCustomer(customer: CustomerEntity)
+    fun deleteCustomer(customer: CustomerEntity)
 }

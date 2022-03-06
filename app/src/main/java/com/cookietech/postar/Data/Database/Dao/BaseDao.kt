@@ -11,14 +11,14 @@ abstract class BaseDao<T> {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract fun insert(obj:List<T>):List<Long>
 
-    @Update(onConflict = OnConflictStrategy.IGNORE)
+    @Update
     abstract fun update(obj:T)
 
-    @Update(onConflict = OnConflictStrategy.IGNORE)
+    @Update
     abstract fun update(obj:List<T>)
 
     @Delete
-    abstract fun delete(obj:T)
+    abstract fun delete(obj:T):Int
 
     @Delete
     abstract fun delete(obj:List<T>)
@@ -47,5 +47,4 @@ abstract class BaseDao<T> {
         }
     }
 
-    abstract fun test()
 }

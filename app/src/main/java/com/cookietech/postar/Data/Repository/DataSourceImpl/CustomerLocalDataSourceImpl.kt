@@ -17,18 +17,23 @@ class CustomerLocalDataSourceImpl(
     }
 
     override fun getAllCustomers(): Flow<List<CustomerEntity>> {
-        TODO("Not yet implemented")
+        return customerDao.getAllCustomers()
     }
 
     override fun getCustomerById(id: String): Flow<CustomerEntity> {
-        TODO("Not yet implemented")
+        return customerDao.getCustomerById(id)
     }
 
     override fun searchCustomer(query: String): Flow<List<CustomerEntity>> {
-        TODO("Not yet implemented")
+        return customerDao.searchCustomer(query)
     }
 
-    override fun updateCustomer(customer: CustomerEntity): Flow<Status> {
-        TODO("Not yet implemented")
+    override fun updateCustomer(customer: CustomerEntity) {
+        customerDao.update(customer)
+    }
+
+    override fun deleteCustomer(customer: CustomerEntity) {
+        val result = customerDao.delete(customer)
+        Log.d("customer_use_case", "deleteCustomer: $result")
     }
 }
