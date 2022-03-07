@@ -85,6 +85,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
+    androidTestImplementation("androidx.work:work-testing:$rootProject.workVersion")
 
 
     testImplementation 'junit:junit:4.13.2'
@@ -95,5 +96,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+
+    //Work manager
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workVersion"
 
 }

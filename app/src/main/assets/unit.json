@@ -1,0 +1,68 @@
+{
+  "unit_categories": [
+    "Weight","Volume","Length","Area","Time"
+  ],
+  "units": [
+    {
+      "unit_name": "Gram",
+      "unit_symbol": "g",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Kilogram",
+      "unit_symbol": "kg",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Milligram",
+      "unit_symbol": "mg",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Ounce",
+      "unit_symbol": "oz",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Pound",
+      "unit_symbol": "lb",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Stone",
+      "unit_symbol": "st",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Gram",
+      "unit_symbol": "g",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Kilogram",
+      "unit_symbol": "kg",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Milligram",
+      "unit_symbol": "mg",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Ounce",
+      "unit_symbol": "oz",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Pound",
+      "unit_symbol": "lb",
+      "unit_category": "Weight"
+    },
+    {
+      "unit_name": "Stone",
+      "unit_symbol": "st",
+      "unit_category": "Weight"
+    }
+  ]
+}
+

@@ -2,11 +2,18 @@ package com.cookietech.postar.Data.Database.Databases
 
 import android.content.Context
 import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.cookietech.postar.Data.Database.Dao.CustomerDao
 import com.cookietech.postar.Data.Database.Dao.ProductCategoryDao
 import com.cookietech.postar.Data.Database.Entity.*
 import com.cookietech.postar.Data.Database.Utils.Converters
+import com.cookietech.postar.Data.Worker.PrepopulateDbWorker
+import com.cookietech.postar.Data.Worker.PrepopulateDbWorker.Companion.KEY_FILENAME
 import com.cookietech.postar.Domain.Model.CustomerEntity
+import com.cookietech.postar.UNIT_DATA_FILENAME
 
 @Database(
     entities = [
@@ -51,6 +58,16 @@ abstract class AppDatabase:RoomDatabase() {
                     INSTANCE = instance
                 }
                 return instance
+            }
+        }
+
+        private class DatabaseCreationCallback(val context: Context): RoomDatabase.Callback() {
+            override fun onCreate(db: SupportSQLiteDatabase) {
+                super.onCreate(db)
+                val prepopulateRequest = OneTimeWorkRequestBuilder<PrepopulateDbWorker>()
+                    .setInputData(workDataOf(KEY_FILENAME to UNIT_DATA_FILENAME))
+                    .build();
+                WorkManager.getInstance(context).enqueue(prepopulateRequest)
             }
         }
     }
