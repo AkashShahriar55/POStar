@@ -8,6 +8,7 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.cookietech.postar.Data.Database.Dao.CustomerDao
 import com.cookietech.postar.Data.Database.Dao.ProductCategoryDao
+import com.cookietech.postar.Data.Database.Dao.ProductUnitDao
 import com.cookietech.postar.Data.Database.Entity.*
 import com.cookietech.postar.Data.Database.Utils.Converters
 import com.cookietech.postar.Data.Worker.PrepopulateDbWorker
@@ -36,6 +37,7 @@ abstract class AppDatabase:RoomDatabase() {
 
     abstract val productCategoryDao:ProductCategoryDao
     abstract val customerDao:CustomerDao
+    abstract val productUnitDao:ProductUnitDao
 
     companion object{
 
@@ -52,7 +54,7 @@ abstract class AppDatabase:RoomDatabase() {
                         AppDatabase::class.java,
                         "pos_database"
                     )
-                        .fallbackToDestructiveMigration()// if migrate the data will be lost . need to implement differently
+                        .addCallback(DatabaseCreationCallback(context))// if migrate the data will be lost . need to implement differently
                         .build()
 
                     INSTANCE = instance

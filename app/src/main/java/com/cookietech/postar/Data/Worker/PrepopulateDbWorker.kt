@@ -1,8 +1,17 @@
 package com.cookietech.postar.Data.Worker
 
 import android.content.Context
+import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.cookietech.postar.Data.Database.Databases.AppDatabase
+import com.cookietech.postar.Data.Database.Entity.ProductUnitEntity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 
 /***
@@ -35,8 +44,30 @@ class PrepopulateDbWorker(
     context: Context,
     params: WorkerParameters
 ): CoroutineWorker(context,params) {
-    override suspend fun doWork(): Result {
-        return Result.success()
+    override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
+        try {
+            val filename = inputData.getString(KEY_FILENAME)
+            if (filename != null) {
+                applicationContext.assets.open(filename).use { inputStream ->
+                    JsonReader(inputStream.reader()).use { jsonReader ->
+
+                        val unitType = object : TypeToken<List<ProductUnitEntity>>() {}.type
+                        val unitList: List<ProductUnitEntity> = Gson().fromJson(jsonReader, unitType)
+
+                        val database = AppDatabase.getInstance(applicationContext)
+                        database.productUnitDao.insert(unitList)
+
+                        Result.success()
+                    }
+                }
+            } else {
+                Log.e(TAG, "Error seeding database - no valid filename")
+                Result.failure()
+            }
+        } catch (ex: Exception) {
+            Log.e(TAG, "Error seeding database", ex)
+            Result.failure()
+        }
     }
 
 

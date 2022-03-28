@@ -12,7 +12,7 @@ abstract class ProductUnitDao: BaseDao<ProductUnitEntity>() {
     abstract fun deleteAllFromCategory()
 
     @Query("select * from product_unit_table order by unit_name desc")
-    abstract fun getAllCategory(): Flow<List<ProductCategoryEntity>>
+    abstract fun getAllCategory(): Flow<List<ProductUnitEntity>>
 
 
 

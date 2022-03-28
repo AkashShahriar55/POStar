@@ -11,6 +11,7 @@ abstract class BaseDao<T> {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract fun insert(obj:List<T>):List<Long>
 
+
     @Update
     abstract fun update(obj:T)
 
