@@ -1,4 +1,4 @@
-package com.cookietech.postar.View
+package com.cookietech.postar.View.home.homePagers
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.cookietech.postar.R
 
-class HomeFragment : Fragment() {
 
+class AnotherFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +21,16 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_another, container, false)
     }
 
     companion object {
+
         @JvmStatic
         fun newInstance() =
-            HomeFragment().apply {
+            AnotherFragment().apply {
                 arguments = Bundle().apply {
+
                 }
             }
     }
